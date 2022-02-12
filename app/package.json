@@ -1,0 +1,42 @@
+{
+  "name": "user-auth-back",
+  "version": "1.0.0",
+  "description": "application for user authentication and data table for users used technologies Nodejs, Express, Sequelize, Passport, Express-validator",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/ebrahimahmed97090/user-auth-back.git"
+  },
+  "author": "Ebrahim Soliman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/ebrahimahmed97090/user-auth-back/issues"
+  },
+  "homepage": "https://gitlab.com/ebrahimahmed97090/user-auth-back#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "dotenv": "^14.3.2",
+    "esm": "^3.2.25",
+    "express": "^4.17.2",
+    "express-validator": "^6.14.0",
+    "mysql2": "^2.3.3",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "nodemon": "^2.0.15",
+    "passport-http-bearer": "^1.0.1",
+    "qs": "^6.10.3",
+    "sequelize": "^6.14.1"
+  },
+  "devDependencies": {
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.4",
+    "nodemailer": "^6.7.2",
+    "uuid": "^8.3.2"
+  }
+}
