@@ -1,0 +1,42 @@
+22-02-23 18-02-83 [31merror[39m: Error: sss
+    at file:///Users/ebrahim/apps/self/back/user-auth-back/app/index.js:33:14
+    at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
+    at async Loader.import (internal/modules/esm/loader.js:178:24)
+    at async Object.loadESM (internal/process/esm_loader.js:68:5)
+    at async handleMainPromise (internal/modules/run_main.js:59:12)
+22-02-23 18-02-21 [31merror[39m: Error: sss
+    at file:///Users/ebrahim/apps/self/back/user-auth-back/app/index.js:33:14
+    at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
+    at async Loader.import (internal/modules/esm/loader.js:178:24)
+    at async Object.loadESM (internal/process/esm_loader.js:68:5)
+    at async handleMainPromise (internal/modules/run_main.js:59:12)
+22-02-23 18-02-48 [31merror[39m: Error: sss
+    at file:///Users/ebrahim/apps/self/back/user-auth-back/app/index.js:33:14
+    at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
+    at async Loader.import (internal/modules/esm/loader.js:178:24)
+    at async Object.loadESM (internal/process/esm_loader.js:68:5)
+    at async handleMainPromise (internal/modules/run_main.js:59:12)
+22-02-23 18-02-16 [31merror[39m: Error: sss
+    at file:///Users/ebrahim/apps/self/back/user-auth-back/app/index.js:33:14
+    at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
+    at async Loader.import (internal/modules/esm/loader.js:178:24)
+    at async Object.loadESM (internal/process/esm_loader.js:68:5)
+    at async handleMainPromise (internal/modules/run_main.js:59:12)
+22-02-23 18-02-16 [31merror[39m: Error: sss
+    at file:///Users/ebrahim/apps/self/back/user-auth-back/app/index.js:33:14
+    at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
+    at async Loader.import (internal/modules/esm/loader.js:178:24)
+    at async Object.loadESM (internal/process/esm_loader.js:68:5)
+    at async handleMainPromise (internal/modules/run_main.js:59:12)
+22-02-23 18-02-39 error: Error: sss
+    at file:///Users/ebrahim/apps/self/back/user-auth-back/app/index.js:33:14
+    at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
+    at async Loader.import (internal/modules/esm/loader.js:178:24)
+    at async Object.loadESM (internal/process/esm_loader.js:68:5)
+    at async handleMainPromise (internal/modules/run_main.js:59:12)
+22-02-23 18-02-48 error: Error: sss
+    at file:///Users/ebrahim/apps/self/back/user-auth-back/app/index.js:33:14
+    at ModuleJob.run (internal/modules/esm/module_job.js:183:25)
+    at async Loader.import (internal/modules/esm/loader.js:178:24)
+    at async Object.loadESM (internal/process/esm_loader.js:68:5)
+    at async handleMainPromise (internal/modules/run_main.js:59:12)

@@ -33,7 +33,8 @@
     "qs": "^6.10.3",
     "sequelize": "^6.14.1",
     "socket.io": "^4.4.1",
-    "swagger-ui-express": "^4.3.0"
+    "swagger-ui-express": "^4.3.0",
+    "winston": "^3.6.0"
   },
   "devDependencies": {
     "jsonwebtoken": "^8.5.1",
