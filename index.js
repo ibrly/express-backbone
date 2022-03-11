@@ -8,12 +8,12 @@ import {
     join
 }                      from "path";
 import {sequelize}     from './util/database.js'
-import authRoutes      from './api/users/routes/auth.js'
+import authRoutes      from './api/user/routes/auth.js'
 import {fileURLToPath} from 'url'
 import {Server}        from "socket.io";
 import {createServer}  from "http";
-import UploadConfig    from "./util/UploadConfig.js";
-import chatRoutes      from './api/chat/routes/chat.js'
+import UploadConfig from "./util/UploadConfig.js";
+import chatRoutes   from './api/message/routes/chat.js'
 
 import {logger} from "./util/logging.js";
 const __filename = fileURLToPath(import.meta.url)
@@ -70,7 +70,7 @@ app.use(
     '/auth',
     authRoutes
 );
-app.use('/chat',
+app.use('/message',
         chatRoutes)
 app.use((
             error,

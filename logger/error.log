@@ -46,3 +46,199 @@
     at async Loader.import (internal/modules/esm/loader.js:178:24)
     at async Object.loadESM (internal/process/esm_loader.js:68:5)
     at async handleMainPromise (internal/modules/run_main.js:59:12)
+22-03-11 14-03-88 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 15-03-88 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 15-03-00 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 15-03-71 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 15-03-93 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 15-03-31 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 15-03-75 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 15-03-59 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 15-03-16 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 16-03-67 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 16-03-00 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 16-03-51 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 16-03-87 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 16-03-71 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 16-03-17 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 16-03-47 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 16-03-79 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 16-03-44 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 16-03-62 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 16-03-53 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 16-03-36 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 16-03-93 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 16-03-06 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 16-03-40 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 16-03-14 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 16-03-40 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 16-03-00 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)
+22-03-11 16-03-81 error: Error: sss
+    at file:///C:/Users/ebrah/apps/user-auth-back/index.js:33:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:337:24)
+    at async loadESM (node:internal/process/esm_loader:88:5)
+    at async handleMainPromise (node:internal/modules/run_main:61:12)

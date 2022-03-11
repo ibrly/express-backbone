@@ -1,6 +1,6 @@
 import Sequelize from "sequelize";
 import {sequelize} from "../../../util/database.js";
-import {Messages} from "../../chat/models/messages.js";
+import {Messages}  from "../../message/models/messages.js";
 
 
 export const User = sequelize.define('user',

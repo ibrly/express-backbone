@@ -1,0 +1,14 @@
+#signup
+
+POST http://localhost:3010/auth/signup
+Content-Type: application/json
+
+{
+  "name": "ebrahim",
+  "firstName": "Ebrahim",
+  "lastName": "Ahmed",
+  "email": "ebrahimahmed97090@gmail.com",
+  "password": "helloworld1",
+  "confirmpassword": "helloworld1",
+  "phone": "01284668997"
+}

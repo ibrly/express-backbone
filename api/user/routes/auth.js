@@ -24,11 +24,11 @@ router.put(
     Auth.updateUser
 );
 router.get(
-    '/users',
+    '/user',
     Auth.getUsers
 );
 router.delete(
-    '/users/:id',
+    '/user/:id',
     Auth.deleteUser
 );
 export default router;
