@@ -18,7 +18,6 @@ export class Auth {
 		res,
 		next
 	) => {
-		
 		try {
 			//validation
 			validationHandle(
@@ -40,7 +39,6 @@ export class Auth {
 			next(err);
 		}
 	}
-	
 	static  login = async (
 		req,
 		res,
@@ -53,7 +51,6 @@ export class Auth {
 				'Login',
 				'Log in Validation Failed'
 			)
-			
 			const user = await findLogin(req)
 			await handleResponse(
 				res,
@@ -67,7 +64,6 @@ export class Auth {
 			next(err);
 		}
 	}
-	
 	
 	static forgetPassword = async (
 		req,
@@ -84,15 +80,18 @@ export class Auth {
 			const token = await JWTSign(user)
 			user.resetLink = token;
 			await user.save()
-			console.log(user.email)
 			await mailer(
 				user.email,
 				'Reset Password Link',
 				`Hello ${user.name} Please Follow this link to reset password ${process.env.FRONT_END_URL}reset-password/${token} `,
 				`<h1>Hello ${user.name} </h1><p><a href='${process.env.FRONT_END_URL}reset-password/${token}'>Please check this link to reset password</a></p>`
 			)
-			res.status(200)
-			   .json({message: `Email sent to ${user.email} successfully please follow the instructions`})
+			await handleResponse(
+				res,
+				200,
+				{message: `Email sent to ${user.email} successfully please follow the instructions`}
+			)
+			
 		} catch (e) {
 			if (!e.statusCode) {
 				e.statusCode = 500;
@@ -128,14 +127,18 @@ export class Auth {
 				`Hello ${user.name} your password successfully changed`,
 				`<h1>Hello ${user.name} your password successfully changed</h1>`
 			)
-			res.json({message: 'Password Changed Successfully'})
-			
+			await handleResponse(
+				res,
+				200,
+				{
+					message: `Password Changed Successfully`
+				}
+			)
 		} catch (e) {
 			if (!e.statusCode) {
 				e.statusCode = 500;
 			}
 			next(e);
-			
 		}
 	}
 	
@@ -150,8 +153,11 @@ export class Auth {
 				401,
 				'There is no user'
 			) : ''
-			res.status(200)
-			   .json(userAuth(loadedUser))
+			await handleResponse(
+				res,
+				200,
+				userAuth(loadedUser)
+			)
 		} catch (err) {
 			err.statusCode = 500;
 			next(err);

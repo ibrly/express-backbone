@@ -9,7 +9,6 @@ export class Crud {
 		res,
 		next
 	) => {
-		
 		try {
 			const Users = await findUsers(req)
 			res.status(200)
@@ -19,7 +18,6 @@ export class Crud {
 			res.json(e)
 		}
 	};
-	
 	static  updateUser = async (
 		req,
 		res,
