@@ -8,7 +8,7 @@ const resetPasswordValidation =
 			.withMessage('Password must be more than 5 alphanumeric characters')
 			.isAlphanumeric()
 			.withMessage('Password must be alphanumeric'),
-		body('confirmpassword')
+		body('confirmPassword')
 			.custom((
 						value,
 						{req}

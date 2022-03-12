@@ -13,7 +13,8 @@ import {User}             from "../models/user.js";
 import mailer             from "../../../util/mailer.js";
 import {JWTSign}          from "../services/JWTSign.js";
 import {idFromToken}      from "../../../services/idFromToken.js";
-import bcrypt from 'bcryptjs'
+import bcrypt             from 'bcryptjs'
+
 export class Auth {
 	static signup = async (
 		req,
@@ -130,6 +131,19 @@ export class Auth {
 		res,
 		next
 	) => {
+		if (!validationResult(req)
+			.isEmpty()) {
+			next(new BaseError(
+				'Forget Password',
+				HttpStatusCode.BAD_REQUEST,
+				'Forget Password Validation Failed',
+				true,
+				validationResult(req)
+					.array()
+			));
+		}
+		
+		
 		const restLink = req.get('Authorization');
 		const user = await User.findOne({where: {resetLink: restLink.split(' ')[1]}})
 		
