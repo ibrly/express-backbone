@@ -1,14 +1,40 @@
 #signup
 
-POST http://localhost:3010/auth/signup
-Content-Type: application/json
+POST localhost:3010/auth/signup HTTP/1.1
+Content-Type: multipart/form-data; boundary=WebAppBoundary
 
-{
-  "name": "ebrahim",
-  "firstName": "Ebrahim",
-  "lastName": "Ahmed",
-  "email": "ebrahimahmed97090@gmail.com",
-  "password": "helloworld1",
-  "confirmpassword": "helloworld1",
-  "phone": "01284668997"
-}
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+ebrahim
+--WebAppBoundary
+Content-Disposition: form-data; name="firstName"
+
+ebrahim
+--WebAppBoundary
+Content-Disposition: form-data; name="lastName"
+
+ahmed
+--WebAppBoundary
+Content-Disposition: form-data; name="email"
+
+sebrdahdwesim@gmail.com
+--WebAppBoundary
+Content-Disposition: form-data; name="password"
+
+lwdsw2
+--WebAppBoundary
+Content-Disposition: form-data; name="confirmpassword"
+
+lwdsw2
+--WebAppBoundary
+Content-Disposition: form-data; name="phone"
+
+01224662991
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="ex.png"
+Content-Type: image/png
+
+< ./image/ex.png
+--WebAppBoundary--
+
