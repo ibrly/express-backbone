@@ -1,4 +1,9 @@
-import {body} from "express-validator";
+import {
+	body,
+	header
+}                    from "express-validator";
+import {User}        from "../models/user.js";
+import {idFromToken} from "../../../services/idFromToken.js";
 
 const resetPasswordValidation =
 	[
@@ -17,7 +22,28 @@ const resetPasswordValidation =
 					throw new Error('Passwords have to match!');
 				}
 				return true
+			}),
+		header('Authorization')
+			.not()
+			.isEmpty()
+			.custom(async (
+				value,
+				{req}
+			) => {
+				const user =
+					await User.findOne({
+										   where:
+											   {resetLink: value.split(' ')[1]}
+									   })
+				
+				if (!await user) {
+					return Promise.reject('Wrong Link!');
+				} else {
+					idFromToken(req)
+				}
+				
 			})
+	
 	]
 
 export default resetPasswordValidation

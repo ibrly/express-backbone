@@ -1,19 +1,16 @@
-import {validationResult} from "express-validator";
-import {handleError}      from "../../../services/handleError.js";
-import {handleResponse}   from "../../../services/handleResponse.js";
-import {createUser}       from "../repository/User/create.js";
+import {handleError}    from "../../../services/handleError.js";
+import {handleResponse} from "../../../services/handleResponse.js";
+import {createUser}     from "../repository/User/create.js";
 import {
 	findJwt,
 	findLogin
-}                         from "../repository/User/findOne.js";
-import {userAuth}         from "../resources/userAuth.js";
-import BaseError          from "../../../exceptionHandler/baseError.js";
-import {HttpStatusCode}   from "../../../exceptionHandler/errorStatus.js"
-import {User}             from "../models/user.js";
-import mailer             from "../../../util/mailer.js";
-import {JWTSign}          from "../services/JWTSign.js";
-import {idFromToken}      from "../../../services/idFromToken.js";
-import bcrypt             from 'bcryptjs'
+}                       from "../repository/User/findOne.js";
+import {userAuth}       from "../resources/userAuth.js";
+import {User}           from "../models/user.js";
+import mailer           from "../../../util/mailer.js";
+import {JWTSign}        from "../services/JWTSign.js";
+import bcrypt           from 'bcryptjs'
+import validationHandle from "../../../services/validationHandle.js";
 
 export class Auth {
 	static signup = async (
@@ -24,17 +21,11 @@ export class Auth {
 		
 		try {
 			//validation
-			const errors = validationResult(req);
-			if (!errors.isEmpty()) {
-				next(new BaseError(
-					'Sign Up',
-					HttpStatusCode.BAD_REQUEST,
-					'Sign up Validation Failed',
-					true,
-					errors.array()
-				));
-			}
-			
+			validationHandle(
+				req,
+				'Sign Up',
+				'Sign up Validation Failed'
+			)
 			const loadedUser = await createUser(req)
 			await handleResponse(
 				res,
@@ -57,26 +48,18 @@ export class Auth {
 	) => {
 		//now you can login with username or email
 		try {
-			if (!validationResult(req)
-				.isEmpty()) {
-				next(new BaseError(
-					'Login',
-					HttpStatusCode.BAD_REQUEST,
-					'Log in Validation Failed',
-					true,
-					validationResult(req)
-						.array()
-				));
-			} else {
-				const user = await findLogin(req)
-				await handleResponse(
-					res,
-					200,
-					await userAuth(user)
-				)
-				
-				
-			}
+			validationHandle(
+				req,
+				'Login',
+				'Log in Validation Failed'
+			)
+			
+			const user = await findLogin(req)
+			await handleResponse(
+				res,
+				200,
+				await userAuth(user)
+			)
 		} catch (err) {
 			if (!err.statusCode) {
 				err.statusCode = 500;
@@ -91,20 +74,12 @@ export class Auth {
 		res,
 		next
 	) => {
-		
 		try {
-			if (!validationResult(req)
-				.isEmpty()) {
-				next(new BaseError(
-					'Forget Password',
-					HttpStatusCode.BAD_REQUEST,
-					'Forget Password Validation Failed',
-					true,
-					validationResult(req)
-						.array()
-				));
-			}
-			
+			validationHandle(
+				req,
+				'Forget Password',
+				'Forget Password Validation Failed'
+			)
 			const user = await User.findOne({where: {email: req.body.email}})
 			const token = await JWTSign(user)
 			user.resetLink = token;
@@ -113,8 +88,8 @@ export class Auth {
 			await mailer(
 				user.email,
 				'Reset Password Link',
-				`Hello ${user.name} Please Follow this link to reset password ${process.env.FRONT_END_URL}reset-password/${token} this link will expire in 15 minutes`,
-				`<h1>Hello ${user.name} </h1><p><a href='${process.env.FRONT_END_URL}reset-password/${token}'>Please check this link to reset password</a>this link will expire in 15 minutes</p>`
+				`Hello ${user.name} Please Follow this link to reset password ${process.env.FRONT_END_URL}reset-password/${token} `,
+				`<h1>Hello ${user.name} </h1><p><a href='${process.env.FRONT_END_URL}reset-password/${token}'>Please check this link to reset password</a></p>`
 			)
 			res.status(200)
 			   .json({message: `Email sent to ${user.email} successfully please follow the instructions`})
@@ -126,34 +101,20 @@ export class Auth {
 		}
 		
 	}
+	
 	static resetPassword = async (
 		req,
 		res,
 		next
 	) => {
-		if (!validationResult(req)
-			.isEmpty()) {
-			next(new BaseError(
-				'Forget Password',
-				HttpStatusCode.BAD_REQUEST,
-				'Forget Password Validation Failed',
-				true,
-				validationResult(req)
-					.array()
-			));
-		}
-		
-		
-		const restLink = req.get('Authorization');
-		const user = await User.findOne({where: {resetLink: restLink.split(' ')[1]}})
-		
 		try {
-			idFromToken(req)
-			if (!user) {
-				const error = new Error('Not authenticated');
-				error.statusCode = 401;
-				throw error;
-			}
+			validationHandle(
+				req,
+				'Reset Password',
+				'Reset Password Validation Failed'
+			)
+			const restLink = req.get('Authorization');
+			const user = await User.findOne({where: {resetLink: restLink.split(' ')[1]}})
 			const password = req.body.password;
 			user.password = await bcrypt.hash(
 				password,
@@ -177,6 +138,7 @@ export class Auth {
 			
 		}
 	}
+	
 	static me = async (
 		req,
 		res,
@@ -192,7 +154,7 @@ export class Auth {
 			   .json(userAuth(loadedUser))
 		} catch (err) {
 			err.statusCode = 500;
-			throw err;
+			next(err);
 		}
 		
 	}
