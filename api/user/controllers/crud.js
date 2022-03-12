@@ -15,6 +15,7 @@ export class Crud {
 			res.status(200)
 			   .json(Users)
 		} catch (e) {
+			
 			res.json(e)
 		}
 	};

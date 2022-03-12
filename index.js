@@ -8,7 +8,7 @@ import {
 	join
 }                      from "path";
 import {sequelize}     from './util/database.js'
-import authRoutes      from './api/user/routes/auth.js'
+import authRoutes      from './api/user/routes/auth/auth.js'
 import {fileURLToPath} from 'url'
 import {Server}        from "socket.io";
 import {createServer}  from "http";
