@@ -1,5 +1,5 @@
-import {body} from "express-validator";
-import {User} from "../models/user.js";
+import {body}        from "express-validator";
+import {findByField} from "../repository/User/findOne.js";
 
 const forgetPasswordValidation =
 	[
@@ -7,10 +7,9 @@ const forgetPasswordValidation =
 			.isEmail()
 			.withMessage('Please enter a valid email')
 			.custom(async (
-				value,
-				{req}
+				email
 			) => {
-				const user = await User.findOne({where: {email: value}})
+				const user = await findByField({email: email})
 				if (!user) {
 					return Promise.reject('Wrong Email!');
 				}
