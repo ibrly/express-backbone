@@ -18,7 +18,5 @@ const validationHandle = (
 				.array()
 		);
 	}
-	return !validationResult(req)
-		.isEmpty()
 }
 export default validationHandle

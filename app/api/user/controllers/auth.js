@@ -78,14 +78,15 @@ export class Auth {
 			)
 			const user = await User.findOne({where: {email: req.body.email}})
 			const token = await JWTSign(user)
-			user.resetLink = token;
-			await user.save()
 			await mailer(
 				user.email,
 				'Reset Password Link',
 				`Hello ${user.name} Please Follow this link to reset password ${process.env.FRONT_END_URL}reset-password/${token} `,
 				`<h1>Hello ${user.name} </h1><p><a href='${process.env.FRONT_END_URL}reset-password/${token}'>Please check this link to reset password</a></p>`
 			)
+			user.resetLink = token;
+			await user.save()
+			
 			await handleResponse(
 				res,
 				200,
@@ -150,8 +151,11 @@ export class Auth {
 		try {
 			let loadedUser = findJwt(req)
 			!loadedUser ? handleError(
+				'get self user',
 				401,
-				'There is no user'
+				'There is no user',
+				true,
+				{}
 			) : ''
 			await handleResponse(
 				res,

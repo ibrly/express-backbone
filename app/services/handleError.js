@@ -1,8 +1,18 @@
+import BaseError from "../exceptionHandler/baseError.js";
+
 export const handleError = (
-	code,
-	message
+	name,
+	statusCode,
+	message,
+	isOperational,
+	data
 ) => {
-	const error = new Error(message);
-	error.statusCode = code;
-	throw error
+	throw new BaseError(
+		name,
+		statusCode,
+		message,
+		isOperational,
+		data
+	);
+	
 }

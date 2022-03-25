@@ -1,5 +1,6 @@
 import nodemailer  from 'nodemailer'
 import sgTransport from 'nodemailer-sendgrid-transport'
+import BaseError   from "../exceptionHandler/baseError.js";
 
 const mailer = async (
 	to,
@@ -9,11 +10,11 @@ const mailer = async (
 ) => {
 	const options = {
 		auth: {
-			api_key: process.env.SENDGRID_API_KEY
+			api_key: 'process.env.SENDGRID_API_KEY'
 		}
 	};
 	const client = nodemailer.createTransport(sgTransport(options));
-	await client.sendMail(
+	return await client.sendMail(
 		{
 			from   : process.env.FROM_EMAIL,
 			to     : to,
@@ -22,13 +23,17 @@ const mailer = async (
 			html   : html
 		},
 		async function (
-			err,
+			error,
 			info
 		) {
-			if (await err) {
-				console.log(err);
-			} else {
-				console.log(info);
+			if (error) {
+				new BaseError(
+					'email sender',
+					500,
+					error.message,
+					false,
+					error
+				)
 			}
 		}
 	)
