@@ -10,13 +10,11 @@ import {
 import {sequelize}     from './util/database.js'
 import authRoutes      from './api/user/routes/auth/auth.js'
 import {fileURLToPath} from 'url'
-import {Server}        from "socket.io";
-import {createServer}  from "http";
+/*import {Server}        from "socket.io";
+ import {createServer}  from "http";*/
 import UploadConfig    from "./util/UploadConfig.js";
 import chatRoutes      from './api/message/routes/chat.js'
-
-import {logger} from "./util/logging.js";
-
+// import {logger} from "./util/logging.js";
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 const app = express();
@@ -55,7 +53,7 @@ app.use(multer({
 			.single('image'));
 try {
 	await sequelize.sync({logging: false})
-	app.listen(3010)
+	app.listen(process.env.PORT)
 } catch (e) {
 	console.log(e)
 }
