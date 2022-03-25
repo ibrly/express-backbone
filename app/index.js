@@ -1,22 +1,16 @@
 import 'dotenv/config'
-import express         from 'express'
-import cors            from 'cors'
-import bodyParser      from "body-parser";
-import multer          from 'multer'
-import {
-	dirname,
-	join
-}                      from "path";
-import {sequelize}     from './util/database.js'
-import authRoutes      from './api/user/routes/auth/auth.js'
-import {fileURLToPath} from 'url'
+import express    from 'express'
+import cors       from 'cors'
+import bodyParser from "body-parser";
+import multer     from 'multer'
+
+import {sequelize}  from './util/database.js'
+import UploadConfig from "./util/UploadConfig.js";
+import router       from "./routes.js";
+import {logger}     from "./util/logging.js";
+import chatRoutes   from './api/message/routes/chat.js'
 /*import {Server}        from "socket.io";
  import {createServer}  from "http";*/
-import UploadConfig    from "./util/UploadConfig.js";
-import chatRoutes      from './api/message/routes/chat.js'
-// import {logger} from "./util/logging.js";
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
 const app = express();
 /*
  const server     = createServer(app);
@@ -57,22 +51,9 @@ try {
 } catch (e) {
 	console.log(e)
 }
-
 app.use(
-	'/images',
-	express.static(join(
-		__dirname,
-		'images'
-	))
-);
-
-app.use(
-	'/auth',
-	authRoutes
-);
-app.use(
-	'/message',
-	chatRoutes
+	'/',
+	router
 )
 app.use((
 			error,

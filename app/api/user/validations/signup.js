@@ -16,7 +16,6 @@ const signUpValidation = [
 						   if (userDoc) {
 							   return Promise
 								   .reject('E-Mail address already exist!');
-					
 						   }
 					   })
 		})
@@ -45,13 +44,41 @@ const signUpValidation = [
 		.isLength({min: 5})
 		.withMessage('User name must be more than 5 characters')
 		.isAlpha()
-		.withMessage('User name must be only characters'),
+		.withMessage('User name must be only characters')
+		.custom((
+					value,
+					{req}
+				) => {
+			return User.findOne({
+									where: {name: value}
+								})
+					   .then(userDoc => {
+						   if (userDoc) {
+							   return Promise
+								   .reject('Username address already exist!');
+						   }
+					   })
+		}),
 	body('phone')
 		.not()
 		.isEmpty()
 		.withMessage('Mobile number is required')
 		.isMobilePhone('ar-EG')
 		.withMessage('Mobile number must be an egyptian number')
+		.custom((
+					value,
+					{req}
+				) => {
+			return User.findOne({
+									where: {phone: value}
+								})
+					   .then(userDoc => {
+						   if (userDoc) {
+							   return Promise
+								   .reject('Phone number already exist!');
+						   }
+					   })
+		})
 ]
 
 export default signUpValidation
