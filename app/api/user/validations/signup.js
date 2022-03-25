@@ -1,23 +1,22 @@
 import {body} from "express-validator";
 import {User} from "../models/user.js";
+import {
+	findByField
+}             from "../repository/User/findOne.js";
 
 const signUpValidation = [
 	body('email')
 		.isEmail()
 		.withMessage('Please enter a valid email')
-		.custom((
-					value,
-					{req}
-				) => {
-			return User.findOne({
-									where: {email: value}
-								})
-					   .then(userDoc => {
-						   if (userDoc) {
-							   return Promise
-								   .reject('E-Mail address already exist!');
-						   }
-					   })
+		.custom(async (
+			email) => {
+			return await findByField({email: email})
+				.then(userDoc => {
+					if (userDoc) {
+						return Promise
+							.reject('E-Mail address already exist!');
+					}
+				})
 		})
 		.normalizeEmail(),
 	body('password')
@@ -45,19 +44,15 @@ const signUpValidation = [
 		.withMessage('User name must be more than 5 characters')
 		.isAlpha()
 		.withMessage('User name must be only characters')
-		.custom((
-					value,
-					{req}
-				) => {
-			return User.findOne({
-									where: {name: value}
-								})
-					   .then(userDoc => {
-						   if (userDoc) {
-							   return Promise
-								   .reject('Username address already exist!');
-						   }
-					   })
+		.custom(async (
+			name) => {
+			return await findByField({name: name})
+				.then(userDoc => {
+					if (userDoc) {
+						return Promise
+							.reject('Username address already exist!');
+					}
+				})
 		}),
 	body('phone')
 		.not()
@@ -65,19 +60,15 @@ const signUpValidation = [
 		.withMessage('Mobile number is required')
 		.isMobilePhone('ar-EG')
 		.withMessage('Mobile number must be an egyptian number')
-		.custom((
-					value,
-					{req}
-				) => {
-			return User.findOne({
-									where: {phone: value}
-								})
-					   .then(userDoc => {
-						   if (userDoc) {
-							   return Promise
-								   .reject('Phone number already exist!');
-						   }
-					   })
+		.custom(async (
+			phone) => {
+			return await findByField({phone: phone})
+				.then(userDoc => {
+					if (userDoc) {
+						return Promise
+							.reject('Phone number already exist!');
+					}
+				})
 		})
 ]
 
