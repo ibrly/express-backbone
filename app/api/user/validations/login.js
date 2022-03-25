@@ -1,16 +1,16 @@
-import {body} from "express-validator";
-import {User} from "../models/user.js";
-import bcrypt from "bcryptjs";
+import {body}        from "express-validator";
+import {User}        from "../models/user.js";
+import bcrypt        from "bcryptjs";
+import {findByField} from "../repository/User/findOne.js";
 
 const loginValidation = [
 	body('email')
 		.isEmail()
 		.withMessage('Please enter a valid email')
 		.custom(async (
-			value,
-			{req}
+			email,
 		) => {
-			const user = await User.findOne({where: {email: value}})
+			const user = await findByField({email: email})
 			if (!user) {
 				return Promise.reject('Wrong Email!');
 			}
@@ -20,9 +20,8 @@ const loginValidation = [
 			value,
 			{req}
 		) => {
-			const user = await User.findOne({
-												where: {email: req.body.email}
-											})
+			const email = req.body.email
+			const user = await findByField({email: email})
 			if (user && !await bcrypt.compare(
 				value,
 				user.password
