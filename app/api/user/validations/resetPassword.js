@@ -4,6 +4,7 @@ import {
 }                    from "express-validator";
 import {User}        from "../models/user.js";
 import {idFromToken} from "../../../services/idFromToken.js";
+import {findJwt}     from "../repository/User/findOne.js";
 
 const resetPasswordValidation =
 	[
@@ -30,18 +31,10 @@ const resetPasswordValidation =
 				value,
 				{req}
 			) => {
-				const user =
-					await User.findOne({
-										   where:
-											   {resetLink: value.split(' ')[1]}
-									   })
-				
-				if (!await user) {
+				const user = await findJwt(req)
+				if (!user) {
 					return Promise.reject('Wrong Link!');
-				} else {
-					idFromToken(req)
 				}
-				
 			})
 	
 	]
