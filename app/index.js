@@ -1,7 +1,6 @@
 import 'dotenv/config'
 import express    from 'express'
 import cors       from 'cors'
-import bodyParser from "body-parser";
 import multer     from 'multer'
 
 import {sequelize}  from './util/database.js'
@@ -38,7 +37,7 @@ const app = express();
  server.listen(3011);
  */
 
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(cors());
 app.use(multer({
 				   storage: UploadConfig.fileStorage,
