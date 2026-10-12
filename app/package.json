@@ -1,5 +1,5 @@
 {
-  "name": "user-auth-back",
+  "name": "express-backbone",
   "version": "1.0.0",
   "description": "application for user authentication and data table for users used technologies Nodejs, Express, Sequelize, Passport, Express-validator",
   "main": "index.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/ebrahimahmed97090/user-auth-back.git"
+    "url": "git+https://github.com/ibrly/express-backbone.git"
   },
   "author": "Ebrahim Soliman",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/ebrahimahmed97090/user-auth-back/issues"
+    "url": "https://github.com/ibrly/express-backbone/issues"
   },
-  "homepage": "https://gitlab.com/ebrahimahmed97090/user-auth-back#readme",
+  "homepage": "https://github.com/ibrly/express-backbone#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
