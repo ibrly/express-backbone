@@ -23,7 +23,7 @@ cp env/db.env.example env/db.env
 docker compose up --build
 ```
 
-The API listens on `http://localhost:1000` and MySQL is exposed on `localhost:6603`.
+The API listens on `http://localhost:1000`, the chat Socket.io server on `http://localhost:3011` (`SOCKET_PORT`), and MySQL is exposed on `localhost:6603`.
 
 ### Without Docker
 

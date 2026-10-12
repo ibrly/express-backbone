@@ -12,6 +12,7 @@ services:
     build: ./app
     ports:
       - '1000:1000'
+      - '3011:3011'
     volumes:
       - ./logs:/app/logs
       - ./app:/app
