@@ -41,4 +41,11 @@ export default class UploadConfig {
 			);
 		}
 	};
+
+	// multer reads `fileFilter`; anything else is silently ignored and every file type is accepted
+	static uploadImage = multer({
+									storage   : UploadConfig.fileStorage,
+									fileFilter: UploadConfig.fileFilter
+								})
+		.single('image');
 }

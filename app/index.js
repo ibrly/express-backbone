@@ -1,7 +1,6 @@
 import 'dotenv/config'
 import express    from 'express'
 import cors       from 'cors'
-import multer     from 'multer'
 
 import {sequelize}  from './util/database.js'
 import UploadConfig from "./util/UploadConfig.js";
@@ -35,11 +34,7 @@ socketServer.listen(process.env.SOCKET_PORT || 3011);
 
 app.use(express.json());
 app.use(cors());
-app.use(multer({
-				   storage: UploadConfig.fileStorage,
-				   filter : UploadConfig.fileFilter
-			   })
-			.single('image'));
+app.use(UploadConfig.uploadImage);
 try {
 	await sequelize.sync({logging: false})
 	app.listen(process.env.PORT)
