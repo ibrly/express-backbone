@@ -33,6 +33,15 @@ npm install
 npm start
 ```
 
+## Tests
+
+```bash
+cd app
+npm test   # node:test, Node 18+, no database needed
+```
+
+`test/upload.test.js` sends files through the real upload middleware and checks that only png/jpeg images are written to `images/`.
+
 ## Project layout
 
 ```
