@@ -39,7 +39,7 @@ All routes are mounted at the root of the API server (`http://localhost:1000`). 
 
 | Method | Route | Auth | Body | Response |
 |--------|-------|------|------|----------|
-| `POST` | `/auth/signup` | none | `name`, `email`, `phone`, `password`, `confirmpassword` | `{jwt: {token, expiresIn}, user}` |
+| `POST` | `/auth/signup` | none | `name` (letters only, more than 5), `firstName`, `lastName`, `email`, `phone` (Egyptian mobile), `password`, `confirmpassword` | `{jwt: {token, expiresIn}, user}` |
 | `POST` | `/auth/login` | none | `email`, `password` | `{jwt: {token, expiresIn}, user}` |
 | `GET` | `/auth/me` | `Authorization: Bearer <token>` | | the signed-in user |
 | `POST` | `/auth/forget-password` | none | `email` | emails a reset link to `FRONT_END_URL/reset-password/<token>` |
