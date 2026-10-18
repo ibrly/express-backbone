@@ -15,8 +15,10 @@ export const idFromToken = (req) => {
 			process.env.JWT_PRIVATE_KEY
 		)
 	} catch (err) {
-		err.statusCode = 500;
-		throw err;
+		// malformed, wrongly signed or expired: the client has to authenticate again
+		const error = new Error('Not authenticated');
+		error.statusCode = 401;
+		throw error;
 	}
 	if (!decodedToken) {
 		const error = new Error('Not authenticated');
