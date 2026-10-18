@@ -33,6 +33,23 @@ npm install
 npm start
 ```
 
+## API
+
+All routes are mounted at the root of the API server (`http://localhost:1000`). Request bodies are JSON.
+
+| Method | Route | Auth | Body | Response |
+|--------|-------|------|------|----------|
+| `POST` | `/auth/signup` | none | `name`, `email`, `phone`, `password`, `confirmpassword` | `{jwt: {token, expiresIn}, user}` |
+| `POST` | `/auth/login` | none | `email`, `password` | `{jwt: {token, expiresIn}, user}` |
+| `GET` | `/auth/me` | `Authorization: Bearer <token>` | | the signed-in user |
+| `POST` | `/auth/forget-password` | none | `email` | emails a reset link to `FRONT_END_URL/reset-password/<token>` |
+| `POST` | `/auth/reset-password` | `Authorization: Bearer <reset token>` | `password`, `confirmPassword` | `{message}` and a confirmation email |
+| `POST` | `/message` | none | `message` | `{message: "success"}` |
+| `GET` | `/message` | none | | `{count, rows}` of all messages |
+| `GET` | `/images/<file>` | none | | uploaded images |
+
+Errors come back as `{message, data}` with the error's status code; validation failures are 400 with the express-validator errors in `data`. Passwords must be alphanumeric and at least 5 characters.
+
 ## Tests
 
 ```bash
