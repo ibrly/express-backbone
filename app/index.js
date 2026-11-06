@@ -7,29 +7,12 @@ import UploadConfig from "./util/UploadConfig.js";
 import router       from "./routes.js";
 import {logger}     from "./util/logging.js";
 import chatRoutes   from './api/message/routes/chat.js'
-import {Server}        from "socket.io";
+import {createChatSocket} from "./util/socket.js";
 import {createServer}  from "http";
 const app = express();
 
-// Chat clients connect here and get a refresh event when someone sends a message.
 const socketServer = createServer();
-const io = new Server(socketServer,
-	{
-		cors: {
-			origin : process.env.FRONT_END_URL || "http://localhost:3000",
-			methods: [
-				"GET",
-				"POST"
-			]
-		}
-	});
-io.on('connection',
-	(socket) => {
-		socket.on('chatMessage',
-			() => {
-				socket.broadcast.emit('refreshChat')
-			});
-	});
+createChatSocket(socketServer);
 socketServer.listen(process.env.SOCKET_PORT || 3011);
 
 app.use(express.json());

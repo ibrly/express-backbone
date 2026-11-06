@@ -25,6 +25,16 @@ docker compose up --build
 
 The API listens on `http://localhost:1000`, the chat Socket.io server on `http://localhost:3011` (`SOCKET_PORT`), and MySQL is exposed on `localhost:6603`.
 
+Socket.io clients authenticate with the same token the REST API returns on login:
+
+```js
+import {io} from 'socket.io-client'
+const socket = io('http://localhost:3011', {auth: {token}})
+socket.on('connect_error', error => console.log(error.message)) // "Not authenticated" for a bad token
+socket.on('refreshChat', refetchChat)
+socket.emit('chatMessage') // after POSTing a message, tells the other clients to refetch
+```
+
 ### Without Docker
 
 ```bash
